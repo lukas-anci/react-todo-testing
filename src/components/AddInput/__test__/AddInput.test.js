@@ -20,4 +20,17 @@ describe('Input testing', () => {
     // Assert
     expect(inputEl.value).toBe('Do sports on Sunday');
   });
+
+  it('Should clear input when adding todo', () => {
+    // Arrange
+    render(<AddInput setTodos={() => {}} todos={[]} />);
+    const inputEl = screen.getByPlaceholderText(/Add a new task/);
+    // Act
+    // change(El, kokschange)
+    fireEvent.change(inputEl, { target: { value: 'Do sports on Sunday' } });
+    const btnEl = screen.getByRole('button');
+    fireEvent.click(btnEl);
+    // Assert
+    expect(inputEl.value).toBe('');
+  });
 });
