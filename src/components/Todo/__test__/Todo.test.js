@@ -66,4 +66,18 @@ it('Task should not have completed class when added to list', () => {
   expect(todoAddedEl).not.toHaveClass('todo-item-active');
 });
 
-test('Task should be gray when clicked (add a class)', () => {});
+test('Task should be gray when clicked (add a class)', () => {
+  // irasom reiksme
+  //mygtuko paspaudimo
+  //pridejomo i sarasa
+  // paspaudziam
+  // pasiziurim ar turi klase todo-item-active
+  render(<MockTodo />);
+  addToTodo(['Do sports on Sunday']);
+  const todoAddedEl = screen.getByText('Do sports on Sunday');
+
+  // Assert
+  fireEvent.click(todoAddedEl);
+
+  expect(todoAddedEl).toHaveClass('todo-item-active');
+});
