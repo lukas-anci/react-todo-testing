@@ -11,6 +11,26 @@ function MockTodoFooter({ numberOfIncompleteTasks }) {
 }
 
 describe('Footer tests', () => {
+  // Hooks
+
+  beforeAll(() => {
+    // vyksta pries vygdant visus testus esancius siame describe bloke
+    console.log('beforeall');
+  });
+
+  beforeEach(() => {
+    // vyksta pries vygdant kiekviena testa siame describe bloke
+    console.log('beforeEach');
+  });
+  afterEach(() => {
+    // vyksta po kiekvieno testo siame describe bloke
+    console.log('afterEach');
+  });
+  afterAll(() => {
+    // vyksta vygdant po visais testais siame describe bloke
+    console.log('afterEach');
+  });
+
   it('Should render correct amount of tasks', () => {
     // Arrange
     render(<MockTodoFooter numberOfIncompleteTasks={5} />);
